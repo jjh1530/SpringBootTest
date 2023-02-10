@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Service;
 
-import com.querydsl.core.QueryFactory;
+import com.querydsl.core.types.dsl.BooleanExpression;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 
 import jh.test.entity.Board;
@@ -36,16 +36,23 @@ public class BoardServiceImpl implements BoardService{
 	 }
 	 
 	
-	@Override
-	public List<Board> getLists(Search search) {
-		List<Board> list = boardRepository.findAll();
-				//boardRepository.findAll();
-		return list;
-	}
+
 	
 	@Override
-	public Long getListCnt(Search search) {
-		return boardRepository.count();
+	public int getListCnt(Search search) {
+		QBoard board = QBoard.board;
+		BooleanExpression searchExpression = null;
+
+		if(search.getSearchType().equals("title") && search.getKeyword() != null && !search.getKeyword().isEmpty()) {
+		    searchExpression = board.title.like(search.getKeyword());
+		}
+
+		if(search.getSearchType().equals("content") && search.getKeyword() != null && !search.getKeyword().isEmpty()) {
+		    searchExpression = board.content.like(search.getKeyword());
+		}
+	    return  (int) queryFactory.selectFrom(board)
+	    		.where(searchExpression)
+	            .fetchCount();
 	}
 	
 	@Override
@@ -57,10 +64,22 @@ public class BoardServiceImpl implements BoardService{
 	
 
 	@Override
-	public Board tests(long idx) {
+	public List<Board> tests(Search search) {
 		QBoard board = QBoard.board;
-        return queryFactory.selectFrom(board)
-                .where(board.idx.eq(idx))
-                .fetchOne();
+		BooleanExpression searchExpression = null;
+
+		if(search.getSearchType().equals("title") && search.getKeyword() != null && !search.getKeyword().isEmpty()) {
+		    searchExpression = board.title.like(search.getKeyword());
+		}
+
+		if(search.getSearchType().equals("content") && search.getKeyword() != null && !search.getKeyword().isEmpty()) {
+		    searchExpression = board.content.like(search.getKeyword());
+		}
+        return  queryFactory.selectFrom(board)
+        		.where(searchExpression)
+                .orderBy(board.idx.asc())
+                .offset(search.getStartList())
+                .limit(search.getListSize())
+                .fetch();
 	}
 }

@@ -23,7 +23,7 @@ public class TestController {
 	public String main(Model model
 			,@RequestParam(required=false,defaultValue="1")int page
 			,@RequestParam(required=false,defaultValue="1")int range
-			,@RequestParam(required=false,defaultValue="resturantName")String searchType
+			,@RequestParam(required=false,defaultValue="title")String searchType
 			,@RequestParam(required=false)String keyword
 			,@ModelAttribute("search")Search search)  throws Exception{
 		
@@ -32,8 +32,7 @@ public class TestController {
 		search.setSearchType(searchType);
 		search.setKeyword(keyword);
 		
-		Long listCnt = boardService.getListCnt(search);
-		
+		int listCnt = boardService.getListCnt(search);
 		//검색 후 페이지
 		search.pageInfo(page, range, listCnt);
 		
@@ -41,12 +40,9 @@ public class TestController {
 		model.addAttribute("pagination", search);
 		model.addAttribute("keyword", keyword);
 		
-		List<Board> list = boardService.getLists(search);
+		model.addAttribute("listCnt",  listCnt);
+		List<Board> list = boardService.tests(search);
 		model.addAttribute("list", list);
-		model.addAttribute("listCnt", listCnt);
-		long idx = 1;
-		Board vo = boardService.tests(idx);
-		System.out.println(vo +"@@@@");
 		return "index";
 	}
 }

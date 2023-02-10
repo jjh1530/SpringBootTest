@@ -6,16 +6,16 @@
 <html>
 <head>
 <meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<link rel="stylesheet" href="/resources/css/bootstrap.min.css">
-	<link rel="stylesheet" href="/resources/css/owl.carousel.min.css">
-	<link rel="stylesheet" href="/resources/css/owl.theme.default.min.css">
-	<link rel="stylesheet" href="/resources/css/jquery.fancybox.min.css">
-	<link rel="stylesheet" href="/resources/css/daterangepicker.css">
-	<link rel="stylesheet" href="/resources/css/aos.css">
-	<link rel="stylesheet" href="/resources/css/style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="/resources/css/bootstrap.min.css">
+<link rel="stylesheet" href="/resources/css/owl.carousel.min.css">
+<link rel="stylesheet" href="/resources/css/owl.theme.default.min.css">
+<link rel="stylesheet" href="/resources/css/jquery.fancybox.min.css">
+<link rel="stylesheet" href="/resources/css/daterangepicker.css">
+<link rel="stylesheet" href="/resources/css/aos.css">
+<link rel="stylesheet" href="/resources/css/style.css">
 
-	<title>Tour Free Bootstrap Template for Travel Agency by Untree.co</title>
+<title>Tour Free Bootstrap Template for Travel Agency by Untree.co</title>
 </head>
 <body>
 	<div class="site-mobile-menu site-navbar-target">
@@ -26,17 +26,16 @@
 		</div>
 		<div class="site-mobile-menu-body"></div>
 	</div>
-
-	<div class="site-mobile-menu site-navbar-target">
+    <div class="site-mobile-menu site-navbar-target">
     <div class="site-mobile-menu-header">
       <div class="site-mobile-menu-close">
         <span class="icofont-close js-menu-toggle"></span>
       </div>
     </div>
     <div class="site-mobile-menu-body"></div>
-  </div>
-
-  <nav class="site-nav">
+  	</div>
+  	
+  	<nav class="site-nav">
     <div class="container">
       <div class="site-navigation">
         <a href="index.html" class="logo m-0">Tour <span class="text-primary">.</span></a>
@@ -71,109 +70,73 @@
       </div>
     </div>
   </nav>
-
-
-  <div class="hero hero-inner">
-    <div class="container">
-      <div class="row align-items-center">
-        <div class="col-lg-6 mx-auto text-center">
-          <div class="intro-wrap">
-            <h1 class="mb-0">Main</h1>
-            <p class="text-white">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
   
   
-  <div class="untree_co-section">
   
-  	<div class="container" >	
-       <table> 
-		 	<tr>
-			<th style="padding-right: 10px; width:15%">
-			 <select class="form-control form-cotrol-sm" name="searchType" id="searchType">
-						<option value="title">제목</option>
-						<option value="content">내용</option>
-			</select>
-			</th>
-			
-			<th style="padding-right: 10px; width: 50%;">
-				<input type="text" class="form-control form-control-sm" name="keyword" id="keyword">
-			</th>
-			
-			<th style="text-align:left; width:10%;">
-				<button class="btn btn-success" name="btnSearch" id="btnSearch" onclick="btnSearch" style="padding: 10px;"  >
-				검색</button>
-			</th>
-			<th style="padding-right: 10px;">
-			<button type="button"  class="btn btn-primary"  onclick="location='board/write'">글쓰기</button>
-			</th>
-			</tr>
-		</table>
-		
+	<div class="hero">
+	<div class="container">
+	<h5 class="card-header bg-primary text-white">문의 글 작성</h5>
+    <div class="panel-body">
+     <form id="form1" name="form1" class="form-horizontal" method="post" enctype="multipart/form-data">
+		 <div class="bg-light rounded h-100 p-4">
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="title">제목 :</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="title" name="title"
+								placeholder="제목을 입력하세요">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="content">내용 :</label>
+						<div class="col-sm-10">
+							<textarea class="form-control" id="content" name="content"
+								placeholder="내용을 입력하세요" rows="5"></textarea>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="writer">작성자 :</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="writer" name="writer"
+								 style="width: 50%;" value=${user.userid }>
+						</div>
+					</div>
+					<!-- 수정 -->
+					<div class="form-group">
+					<label class="control-label col-sm-2" for="uploadFile">첨부파일 :</label>
+						<div class="col-sm-10">
+							<input multiple="multiple" type="file" id="file"name="file" style="width: 50%">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="boardpass">게시글 비밀번호 :</label>
+						<div class="col-sm-10">
+							<input type="password" class="form-control" id="boardpass" name="boardpass" onkeyup="passwordCheck();"
+								placeholder="비밀번호를 입력하세요">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="boardpass2">비밀번호 확인 :</label>
+						<div class="col-sm-10">
+							<input type="password" class="form-control" id="boardpass2" name="boardpass2" onkeyup="passwordCheck();"
+								placeholder="비밀번호를 입력하세요">
+						</div>
+					</div>
+					<div style="text-align: center;">
+						<input type="button" value="등록" id="btn_add" name="btn_add"class='btn btn-primary' /> 
+						<input type="button" value="리스트" onclick="location.href='/'"class='btn btn-success' />
+					</div>
+					<div>
+					   <span>비밀번호는 필수 입력이 아닙니다.</span><br>
+		      	       <span id="passMessage" style="color:red;"></span>
+					</div>
+				  </div>
+				</form>
+			</div>
 		</div>
-    <div class="container">
-      <table class="table card-table">
-			<thead>
-				<tr>
-					<th>번호</th>
-					<th>제목</th>
-					<th>작성자</th>
-					<th>작성일</th>
-				</tr>
-			</thead>
-			
-			<tbody class="table-border-bottom-0">
-			  <c:forEach var="result" items="${list }" varStatus="loop">
-				<tr>
-					<td>${result.idx }</td>
-					<td><a href="/board/detail?idx=${result.idx }">${result.title }</a></td>
-					<td>${result.content }</td>
-					<td>${result.indate }</td>
-				</tr>
-			  </c:forEach>
-			</tbody>
-			
-		</table>
-		
-		<!-- 페이징 -->
- 		<div class="container">
-		<div id="paginationBox" class="text-center">
-			<ul class="pagination" style="justify-content: center; ">
-			
-				<c:if test="${pagination.prev }">
-					<li class="page-item"><a class="page-link" href="#" onclick="fn_prev('${pagination.page }','${pagination.range }', '${pagination.rangeSize }','${pagination.listSize }'
-					,'${search.searchType }', '${search.keyword}')">이전</a>
-				</li></c:if>
-				<c:forEach begin="${pagination.startPage }" end="${pagination.endPage}" var="title">
-					<li class='page-item <c:out value="${pagination.page ==  title ? 'active' : ''}"/> '>
-					<a class="page-link" href="#" onclick="fn_pagination('${title }', '${pagination.range }','${paginationf.rangeSize }',
-						'${pagination.listSize }','${search.searchType}','${search.keyword }')">
-						${title}</a></li>
-				</c:forEach>	
-				
-				<c:if test="${pagination.next }">
-					<li class="page-item"><a class="page-link" href="#" onclick="fn_next('${pagination.page }','${pagination.range }', '${pagination.rangeSize }',
-						'${pagination.listSize }','${search.searchType }', '${search.keyword}')">다음</a>
-					</li>
-				</c:if>
-			
-			</ul>
-		</div> 
-		</div>
-		<!-- 페이징 종료 -->
-      </div>
-    </div>
-  </div>
-
+	</div>
   
-
-
-
-  <div class="site-footer">
+  
+   <div class="site-footer">
     <div class="inner first">
       <div class="container">
         <div class="row">
@@ -263,53 +226,61 @@
 	<script src="/resources/js/daterangepicker.js"></script>
 
 	<script src="/resources/js/typed.js"></script>
-<script>
-function fn_prev(page, range, rangeSize, listSize, searchType, keyword) {
-	
-	var page = ((range - 2) * rangeSize) + 1;
-	var range = range - 1;
-	var url = "/";
-	url += "?page=" + page;
-	url += "&range=" + range;
-	url += "&listSize=" + listSize;
-	url += "&searchType=" + searchType;
-	url += "&keyword=" + keyword;
-	location.href= url;
-}
-
-function fn_pagination(page, range, rangeSize, listSize, searchType, keyword) {
-	var url = "/";
-		url += "?page=" + page;
-		url += "&range=" + range;
-		url += "&listSize=" + listSize;
-		url += "&searchType=" + searchType;
-		url += "&keyword=" + keyword;
-		location.href= url;
-}
-
-function fn_next(page, range, rangeSize, listSize, searchType, keyword) {
-	
-	var page = parseInt((range * rangeSize)) +1;
-	var range = parseInt(range) +1;
-	var url = "/";
-	url += "?page=" + page;
-	url += "&range=" + range;
-	url += "&listSize=" + listSize;
-	url += "&searchType=" + searchType;
-	url += "&keyword=" + keyword;
-	location.href= url;
-}
-$(document).on('click','#btnSearch',function(e){
-	e.preventDefault();
-	var url = "/";
-	url += "?searchType=" + $('#searchType').val();
-	url += "&keyword=" + $('#keyword').val();
-	location.href = url;
-	console.log(url);
-});
-</script>
+	</script>
 
 	<script src="/resources/js/custom.js"></script>
-
+	<script>
+	 $(function() {
+			
+			$("#btn_add").click(function(){
+				
+				//var email_rule =  /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+				
+				var title = $.trim($("#title").val());
+				var content = $.trim($("#content").val());
+				var writer = $.trim($("#writer").val());
+				var boardpass =  $.trim($("#boardpass").val());
+				var boardpass2 =  $.trim($("#boardpass2").val());
+				
+				if(title == "") {
+					alert("제목을 입력해주세요.");	
+					$("#title").focuse();
+					return false;
+				}
+				
+				if(content == "") {
+					alert("내용을 입력해주세요.");	
+					$("#content").focuse();
+					return false;
+				}
+				
+				if(writer == "") {
+					alert("이름을 입력해주세요.");	
+					$("#writer").focuse();
+					return false;
+				}
+				 
+				  if (boardpass != boardpass2) {
+					  alert("비밀번호가 다릅니다.")	
+						return false;
+				}
+				  
+				  document.form1.action="<c:url value='/board/write'/>"; 
+				  document.form1.submit();
+				
+			});
+		});
+	 
+	 
+	  function passwordCheck() {
+			var boardpass = $("#boardpass").val();
+			var boardpass2 = $("#boardpass2").val();
+			if (boardpass != boardpass2) {
+				$("#passMessage").html("비밀번호가 일치하지 않습니다.");
+			}else {
+				$("#passMessage").html("");
+			}		
+		}
+	</script>
 </body>
 </html>

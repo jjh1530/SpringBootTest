@@ -8,6 +8,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import lombok.Data;
 
 @Entity
@@ -30,14 +32,14 @@ public class Board {
 	
 	@Column(insertable=false, updatable = false, columnDefinition = "int default 0")
 	private Long count;
-
+	
+	private String boardpass;
+	private String  file;
 	@Override
 	public String toString() {
 		return "Board [idx=" + idx + ", title=" + title + ", content=" + content + ", writer=" + writer + ", indate="
-				+ indate + ", count=" + count + "]";
+				+ indate + ", count=" + count + ", boardpass=" + boardpass + ", file=" + file + "]";
 	}
 	
 	
-	
-
 }

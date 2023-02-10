@@ -13,7 +13,7 @@ public class Pagination {
 	
 	private int range;
 	
-	private Long listCnt;
+	private int listCnt;
 	
 	private int pageCnt;
 	
@@ -27,7 +27,7 @@ public class Pagination {
 	
 	private boolean next;
 	
-	public void pageInfo(int page, int range, Long listCnt) {
+	public void pageInfo(int page, int range, int listCnt) {
 		this.page = page;
 		this.range = range;
 		this.listCnt = listCnt;
