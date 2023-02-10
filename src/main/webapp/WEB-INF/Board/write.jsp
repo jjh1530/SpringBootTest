@@ -100,13 +100,12 @@
 								 style="width: 50%;" value=${user.userid }>
 						</div>
 					</div>
-					<!-- 수정 -->
 					<div class="form-group">
-					<label class="control-label col-sm-2" for="uploadFile">첨부파일 :</label>
-						<div class="col-sm-10">
-							<input multiple="multiple" type="file" id="file"name="file" style="width: 50%">
-						</div>
-					</div>
+					    <label class="control-label col-sm-2" for="uploadFile">첨부파일 :</label>
+					    <div class="col-sm-10">
+					       <input type="file" name="filename">
+					    </div>
+				    </div>
 					<div class="form-group">
 						<label class="control-label col-sm-2" for="boardpass">게시글 비밀번호 :</label>
 						<div class="col-sm-10">

@@ -131,7 +131,7 @@
 				<tr>
 					<td>${result.idx }</td>
 					<td><a href="/board/detail?idx=${result.idx }">${result.title }</a></td>
-					<td>${result.content }</td>
+					<td>${result.writer }</td>
 					<td>${result.indate }</td>
 				</tr>
 			  </c:forEach>

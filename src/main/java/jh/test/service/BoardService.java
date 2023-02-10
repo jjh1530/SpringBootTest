@@ -14,5 +14,11 @@ public interface BoardService {
 	public Board detail(Long idx);
 	
 	public List<Board> tests(Search search);
+	
+	public void write(Board vo);
+	
+	public void delete(Long idx);
+	
+	public void modify(Board vo);
 
 }

@@ -25,8 +25,6 @@ public class QBoard extends EntityPathBase<Board> {
 
     public final NumberPath<Long> count = createNumber("count", Long.class);
 
-    public final StringPath file = createString("file");
-
     public final NumberPath<Long> idx = createNumber("idx", Long.class);
 
     public final DateTimePath<java.util.Date> indate = createDateTime("indate", java.util.Date.class);

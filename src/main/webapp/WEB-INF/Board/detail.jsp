@@ -92,31 +92,28 @@
      <div class="bg-light rounded h-100 p-4">
          <h2 class="mb-4">1</h2>
          <div class="form-floating mb-3">
-         	<label for="floatingPassword">도로명주소</label>
+         	<label for="floatingPassword">idx</label>
              <input type="text" class="form-control" id="loadaddress"  readonly="readonly"
                  value="${vo.idx }">
          </div>
   		 <div class="form-floating mb-3">
-  		 	<label for="floatingPassword">지번주소</label>
+  		 	<label for="floatingPassword">제목</label>
              <input type="text" class="form-control" id="address"  readonly="readonly"
                  value="${vo.title }">
          </div>
          <div class="form-floating mb-3">
-         	<label for="floatingPassword">전화번호</label>
-             <input type="text" class="form-control" id="restPhone"  readonly="readonly"
-                 value="${vo.content }">
+         	<label for="floatingPassword">내용</label>
+              <textarea class="form-control" readonly="readonly" rows="5">${vo.content }</textarea>
          </div>
          <div class="form-floating mb-3">
-         	<label for="floatingPassword">업종</label>
+         	<label for="floatingPassword">작성자</label>
              <input type="text" class="form-control" id="restSector"  readonly="readonly"
-                 value="${vo.indate }">
+                 value="${vo.writer }">
          </div>
-         <div class="form-floating mb-3">
-         	<label for="floatingPassword">영업 허가명</label>
-             <input type="text" class="form-control" id="restSectorName"  readonly="readonly"
-         </div>
-        
-       
+         <br>
+         <input type="button" value="리스트" onclick="location.href='/'" class='btn btn-success'/>
+         <input type="button" value="수정" onclick="location.href='/board/modify?idx=${vo.idx}'" class='btn btn-info'/>
+         <input type="button" value="삭제" onclick="location.href='/board/delete?idx=${vo.idx}'" class='btn btn-warning'/>
      </div>
     </div>
    </div>

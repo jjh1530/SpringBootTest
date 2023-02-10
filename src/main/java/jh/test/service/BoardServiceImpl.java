@@ -34,8 +34,6 @@ public class BoardServiceImpl implements BoardService{
 	     this.entityManager = entityManager;
 	     this.queryFactory = new JPAQueryFactory(entityManager);
 	 }
-	 
-	
 
 	
 	@Override
@@ -81,5 +79,20 @@ public class BoardServiceImpl implements BoardService{
                 .offset(search.getStartList())
                 .limit(search.getListSize())
                 .fetch();
+	}
+	
+	@Override
+	public void write(Board vo) {
+		boardRepository.save(vo);
+	}
+	
+	@Override
+	public void delete(Long idx) {
+		boardRepository.deleteById(idx);
+	}
+	
+	@Override
+	public void modify(Board vo) {
+		boardRepository.save(vo);
 	}
 }

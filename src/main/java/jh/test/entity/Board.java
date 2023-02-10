@@ -34,12 +34,13 @@ public class Board {
 	private Long count;
 	
 	private String boardpass;
-	private String  file;
+
 	@Override
 	public String toString() {
 		return "Board [idx=" + idx + ", title=" + title + ", content=" + content + ", writer=" + writer + ", indate="
-				+ indate + ", count=" + count + ", boardpass=" + boardpass + ", file=" + file + "]";
+				+ indate + ", count=" + count + ", boardpass=" + boardpass + "]";
 	}
+	
 	
 	
 }

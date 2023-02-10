@@ -1,11 +1,9 @@
 package jh.test.controller;
 
-import java.io.BufferedOutputStream;
 import java.io.File;
-import java.io.FileOutputStream;
-import java.time.LocalDate;
-import java.util.List;
 import java.util.UUID;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.io.FilenameUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,10 +40,29 @@ public class BoardController {
 	
 	@PostMapping("/write")
 	public String write(Board vo) throws Exception {
-		String filename = vo.getFile();
-		System.out.println(filename);
-		String uploadPath = "C:/upload";
+		//boardService.write(vo);
 		
+		return "redirect:/";
+	}
+	
+	@GetMapping("/delete")
+	public String delete(Long idx) {
+		
+		boardService.delete(idx);
+		
+		return "redirect:/";
+	}
+	
+	@GetMapping("/modify")
+	public String modify(Long idx,Model model) {
+		Board vo = boardService.detail(idx);
+		model.addAttribute("vo", vo);
+		return "Board/modify";
+	}
+	
+	@PostMapping("/modify")
+	public String modify(Board vo) {
+		boardService.modify(vo);
 		return "redirect:/";
 	}
 	
