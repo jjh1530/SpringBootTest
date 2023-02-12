@@ -14,6 +14,7 @@
 	<link rel="stylesheet" href="/resources/css/daterangepicker.css">
 	<link rel="stylesheet" href="/resources/css/aos.css">
 	<link rel="stylesheet" href="/resources/css/style.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css">
 
 	<title>Tour Free Bootstrap Template for Travel Agency by Untree.co</title>
 </head>
@@ -110,6 +111,12 @@
              <input type="text" class="form-control" id="restSector"  readonly="readonly"
                  value="${vo.writer }">
          </div>
+          <c:if test="${vo.boardfile !=null && vo.boardfile!=''}">
+		         <div style="vertical-align: middle; " >
+		         	<img src="<%= request.getContextPath() %>/upload/${vo.boardfile}" alt="Image">
+				</div>
+				<p>
+			</c:if>
          <br>
          <input type="button" value="리스트" onclick="location.href='/'" class='btn btn-success'/>
          <input type="button" value="수정" onclick="location.href='/board/modify?idx=${vo.idx}'" class='btn btn-info'/>

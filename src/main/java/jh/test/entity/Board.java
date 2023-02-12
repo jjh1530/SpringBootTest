@@ -33,13 +33,19 @@ public class Board {
 	@Column(insertable=false, updatable = false, columnDefinition = "int default 0")
 	private Long count;
 	
+	private String boardfile;
+
+	
 	private String boardpass;
+
 
 	@Override
 	public String toString() {
 		return "Board [idx=" + idx + ", title=" + title + ", content=" + content + ", writer=" + writer + ", indate="
-				+ indate + ", count=" + count + ", boardpass=" + boardpass + "]";
+				+ indate + ", count=" + count + ", boardfile=" + boardfile + ", boardpass=" + boardpass + "]";
 	}
+	
+	
 	
 	
 	

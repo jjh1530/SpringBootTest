@@ -3,6 +3,7 @@ package jh.test.controller;
 import java.io.File;
 import java.util.UUID;
 
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.io.FilenameUtils;
@@ -20,6 +21,9 @@ import jh.test.service.BoardService;
 
 @Controller
 @RequestMapping("/board/*")
+@MultipartConfig(fileSizeThreshold=1024*1024*2, // 2MB
+maxFileSize=1024*1024*10,      // 10MB
+maxRequestSize=1024*1024*50)   // 50MB
 public class BoardController {
 
 	@Autowired
@@ -39,10 +43,26 @@ public class BoardController {
 	}
 	
 	@PostMapping("/write")
-	public String write(Board vo) throws Exception {
-		//boardService.write(vo);
+	public String write(Board vo,@RequestParam MultipartFile upFile) throws Exception {
+		String uploadPath = "/C:/Users/wogns/git/SpringBootTest/src/main/resources/static/upload";
+		//C:\Users\wogns\git\SpringBootTest\src\main\resources
+		String originalFilename  = upFile.getOriginalFilename();
+		String ext = FilenameUtils.getExtension(originalFilename);
+		UUID uuid = UUID.randomUUID();
+		String filename = uuid+ "." + ext;
+		upFile.transferTo(new File(uploadPath +"/" + filename));
+		vo.setBoardfile(filename);
+		System.out.println(vo);
+		boardService.write(vo);
 		
 		return "redirect:/";
+	}
+	
+	private String uploadFile(String originalFileName, MultipartFile file) throws Exception {
+	    String savedFileName = UUID.randomUUID() + "_" + originalFileName;
+	    File targetFile = new File("/C:/upload" + savedFileName);
+	    file.transferTo(targetFile);
+	    return savedFileName;
 	}
 	
 	@GetMapping("/delete")

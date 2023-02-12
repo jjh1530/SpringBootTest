@@ -19,6 +19,8 @@ public class QBoard extends EntityPathBase<Board> {
 
     public static final QBoard board = new QBoard("board");
 
+    public final StringPath boardfile = createString("boardfile");
+
     public final StringPath boardpass = createString("boardpass");
 
     public final StringPath content = createString("content");

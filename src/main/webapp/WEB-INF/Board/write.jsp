@@ -101,9 +101,9 @@
 						</div>
 					</div>
 					<div class="form-group">
-					    <label class="control-label col-sm-2" for="uploadFile">첨부파일 :</label>
+					    <label class="control-label col-sm-2" for="upFile">첨부파일 :</label>
 					    <div class="col-sm-10">
-					       <input type="file" name="filename">
+					       <input type="file" name="upFile">
 					    </div>
 				    </div>
 					<div class="form-group">

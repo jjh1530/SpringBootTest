@@ -13,7 +13,7 @@
 	<link rel="stylesheet" href="/resources/css/jquery.fancybox.min.css">
 	<link rel="stylesheet" href="/resources/css/daterangepicker.css">
 	<link rel="stylesheet" href="/resources/css/aos.css">
-	<link rel="stylesheet" href="/resources/css/style.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css">
 
 	<title>Tour Free Bootstrap Template for Travel Agency by Untree.co</title>
 </head>

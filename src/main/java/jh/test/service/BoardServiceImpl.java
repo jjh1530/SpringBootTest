@@ -9,6 +9,7 @@ import javax.persistence.PersistenceContext;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.querydsl.core.types.dsl.BooleanExpression;
 import com.querydsl.jpa.impl.JPAQueryFactory;
@@ -83,7 +84,7 @@ public class BoardServiceImpl implements BoardService{
 	
 	@Override
 	public void write(Board vo) {
-		boardRepository.save(vo);
+			boardRepository.save(vo);
 	}
 	
 	@Override
